@@ -3,7 +3,7 @@
 
 abstract class ControleRemoto {
     
-    private $power; 
+    private $power; // buttons must be on boolean values.
     private $pieces;
     private $buttonsQuantity;
     private $approvedByGovernnment;
