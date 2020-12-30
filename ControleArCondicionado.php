@@ -4,7 +4,7 @@ include_once 'ControleRemoto.php';
 
 class ControleArCondicionado extends ControleRemoto {
     
-    private $upTemperature;
+    private $upTemperature; // buttons must be on boolean values.
     private $downtemperature;
     private $upWindVelocity;
     private $DownWindVelocity;
@@ -16,7 +16,5 @@ class ControleArCondicionado extends ControleRemoto {
         $this->upWindVelocity = $upWindVelocity;
         $this->DownWindVelocity = $DownWindVelocity;
     }
-
-    
     
 }

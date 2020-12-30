@@ -21,14 +21,14 @@ abstract class ControleRemoto {
     
     public function TurnOn() {
         if($this->getPower() == false && $this->approvedByGovernnment == true){
-            $this->getPower() = true;
+            $this->setPower(true);
             echo "The machine is connected.";
         }
     }
     
     public function TurnOff() {
         if($this->getPower() == true && $this->approvedByGovernnment == true){
-            $this->getPower() = false;
+            $this->setPower(false);
             echo "The machine is disconnected.";
         }
     }
