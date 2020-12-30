@@ -5,6 +5,9 @@
     </head>
     <body>
         <?php
+        
+        // By Gabriel
+        
         include_once 'ControleRemoto.php';
         include_once 'ControleArCondicionado.php';
         include_once 'ControleTV.php';
