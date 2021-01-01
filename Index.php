@@ -16,6 +16,13 @@
         $Ar = new ControleArCondicionado(false, 3, 4, false, false, false, false);
         $Ar->GovernnamentAprovation();
         $Ar->TurnOn();
+        $Ar->DownWindVelocity();
+        $Ar->UpWindVelocity();
+        $Ar->UpWindVelocity();
+        $Ar->UpWindVelocity();
+        $Ar->UpWindVelocity();
+        $Ar->UpWindVelocity();
+        $Ar->UpWindVelocity();
         
          ?>
     </body>

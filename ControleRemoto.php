@@ -22,21 +22,21 @@ abstract class ControleRemoto {
     public function TurnOn() {
         if($this->getPower() == false && $this->approvedByGovernnment == true){
             $this->setPower(true);
-            echo "The machine is connected.";
+            echo "The machine is connected." . "\n\r";
         }
     }
     
     public function TurnOff() {
         if($this->getPower() == true && $this->approvedByGovernnment == true){
             $this->setPower(false);
-            echo "The machine is disconnected.";
+            echo "The machine is disconnected." . "\n\r";
         }
     }
     
     public function DetailsOfTheRemote() {
         if($this->approvedByGovernnment == true){
-        echo "Buttons quantity: " . $this->buttonsQuantity;
-        echo "Pieces quantity: " . $this->pieces;
+        echo "Buttons quantity: " . $this->buttonsQuantity . "\n\r";
+        echo "Pieces quantity: " . $this->pieces . "\n\r";
         }
     }
     
