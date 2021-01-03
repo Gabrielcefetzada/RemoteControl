@@ -1,31 +1,31 @@
 <?php
 
-include_once 'ControleRemoto.php';
+include_once 'TVRemote.php';
 
-class ControleArCondicionado extends ControleRemoto {
+class AirConditioningRemote extends Remote {
 
     private $upTemperature; // buttons must be on boolean values.
     private $downtemperature;
-    private $Temperature;
+    private $temperature;
     private $upWindVelocity;
-    private $DownWindVelocity;
-    private $Winding;
+    private $downWindVelocity;
+    private $winding;
     private $currentWindVelocity;
 
-    function __construct($power, $pieces, $buttonsQuantity, $upTemperature, $downtemperature, $upWindVelocity, $DownWindVelocity) {
+    function __construct($power, $pieces, $buttonsQuantity, $upTemperature, $downtemperature, $upWindVelocity, $downWindVelocity) {
         parent::__construct($power, $pieces, $buttonsQuantity);
         $this->upTemperature = $upTemperature;
         $this->downtemperature = $downtemperature;
         $this->upWindVelocity = $upWindVelocity;
-        $this->DownWindVelocity = $DownWindVelocity;
-        $this->Temperature = 20;
-        $this->Winding = true;
+        $this->DownWindVelocity = $downWindVelocity;
+        $this->temperature = 20;
+        $this->winding = true;
         $this->currentWindVelocity = 1;
     }
 
     function UpTemperature() {
         $this->setUpTemperature(true);
-        if ($this->getTemperature() <= 30 && $this->getUpTemperature() == true) {
+        if ($this->getTemperature() <= 30 && $this->getUpTemperature() == true && $this->getPower() == true) {
             $this->setTemperature($this->getTemperature() + 1);
         }
         $this->setUpTemperature(false);
@@ -33,7 +33,7 @@ class ControleArCondicionado extends ControleRemoto {
 
     function DownTemperature() {
         $this->setDowntemperature(true);
-        if ($this->getTemperature() >= 13 && $this->getDowntemperature() == true) {
+        if ($this->getTemperature() >= 13 && $this->getDowntemperature() == true && $this->getPower() == true) {
             $this->setTemperature($this->getTemperature() - 1);
         }
 
@@ -41,7 +41,7 @@ class ControleArCondicionado extends ControleRemoto {
     }
 
     function DownWindVelocity() {
-        if ($this->Winding == true && $this->currentWindVelocity >= 1) {
+        if ($this->winding == true && $this->currentWindVelocity >= 1 && $this->getPower() == true) {
             $this->setCurrentWindVelocity($this->getCurrentWindVelocity() - 1);
             echo "Current wind's velocity: " . $this->getCurrentWindVelocity() . "\n\r";
         } else {
@@ -50,7 +50,7 @@ class ControleArCondicionado extends ControleRemoto {
     }
 
     function UpWindVelocity() {
-        if ($this->Winding == true && $this->currentWindVelocity <= 4) {
+        if ($this->winding == true && $this->currentWindVelocity <= 4 && $this->getPower() == true) {
             $this->setCurrentWindVelocity($this->getCurrentWindVelocity() + 1);
             ?>
             <br></br>
@@ -58,8 +58,9 @@ class ControleArCondicionado extends ControleRemoto {
             echo "Current wind's velocity:" . $this->getCurrentWindVelocity();
         } else {
             ?>
-            <p> You can´t up anymore because, this is the higher wind velocity. </p>
+            <br></br>
             <?php
+            echo "You can´t up anymore because, this is the higher wind velocity.";      
         }
     }
 
@@ -72,7 +73,7 @@ class ControleArCondicionado extends ControleRemoto {
     }
 
     function getUpTemperature() {
-        return $this->upTemperature;
+        return $this->upTemperature; 
     }
 
     function getDowntemperature() {
@@ -80,7 +81,7 @@ class ControleArCondicionado extends ControleRemoto {
     }
 
     function getTemperature() {
-        return $this->Temperature;
+        return $this->temperature;
     }
 
     function getUpWindVelocity() {
@@ -88,11 +89,11 @@ class ControleArCondicionado extends ControleRemoto {
     }
 
     function getDownWindVelocity() {
-        return $this->DownWindVelocity;
+        return $this->downWindVelocity;
     }
 
     function getWinding() {
-        return $this->Winding;
+        return $this->winding;
     }
 
     function setUpTemperature($upTemperature) {
@@ -103,20 +104,20 @@ class ControleArCondicionado extends ControleRemoto {
         $this->downtemperature = $downtemperature;
     }
 
-    function setTemperature($Temperature) {
-        $this->Temperature = $Temperature;
+    function setTemperature($temperature) {
+        $this->temperature = $temperature;
     }
 
     function setUpWindVelocity($upWindVelocity) {
         $this->upWindVelocity = $upWindVelocity;
     }
 
-    function setDownWindVelocity($DownWindVelocity) {
-        $this->DownWindVelocity = $DownWindVelocity;
+    function setDownWindVelocity($downWindVelocity) {
+        $this->downWindVelocity = $downWindVelocity;
     }
 
-    function setWinding($Winding) {
-        $this->Winding = $Winding;
+    function setWinding($winding) {
+        $this->winding = $winding;
     }
 
 }

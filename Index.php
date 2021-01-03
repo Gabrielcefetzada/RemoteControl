@@ -6,14 +6,14 @@
     <body>
         <?php
         
-        // By Gabriel
+        // Built by Gabriel Augusto
         
-        include_once 'ControleRemoto.php';
-        include_once 'ControleArCondicionado.php';
-        include_once 'ControleTV.php';
-        include_once 'ControleIluminacao.php';
+        include_once 'Remote.php';
+        include_once 'AirConditioningRemote.php';
+        include_once 'TVRemote.php';
+        include_once 'IluminationRemote.php';
         
-        $Ar = new ControleArCondicionado(false, 3, 4, false, false, false, false);
+        $Ar = new AirConditioningRemote(false, 3, 4, false, false, false, false);
         $Ar->GovernnamentAprovation();
         $Ar->TurnOn();
         $Ar->DownWindVelocity();
