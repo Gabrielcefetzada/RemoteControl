@@ -24,6 +24,9 @@
         $Ar->UpWindVelocity();
         $Ar->UpWindVelocity();
         
+        $TV = new TVRemote(true, 3, 4, false, false, false, false);
+        $TV->SmartTv(1);
+        
          ?>
     </body>
 </html>

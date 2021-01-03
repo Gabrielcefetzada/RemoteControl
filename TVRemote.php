@@ -1,8 +1,7 @@
 <?php
 
-
 class TVRemote {
-   
+
     private $upSound;
     private $downSound;
     private $currentSound;
@@ -11,7 +10,7 @@ class TVRemote {
     private $currentChannel;
     private $currentMute;
     private $smartTV;
-    
+
     function __construct($power, $pieces, $buttonsQuantity, $upSound, $downSound, $upChannel, $downChannel) {
         parent::__construct($power, $pieces, $buttonsQuantity);
         $this->upSound = $upSound;
@@ -22,6 +21,38 @@ class TVRemote {
         $this->currentChannel = 2;
         $this->currentMute = false;
         $this->smartTV = false;
+    }
+
+    function SmartTv($option) {
+        $this->setSmartTV(true);
+        ?>
+        <h1>Options</h1>
+        <?php
+        echo "1 - Netflix";
+        ?>
+        <br></br>
+        <?php
+        echo "2 - Youtube";
+        ?>
+        <br></br>
+        <?php
+        echo "3 - DisneyPlus";
+        ?>
+        <br></br>
+        <?php
+        if ($this->getSmartTV() == true && $this->getPower() == true) {
+            switch ($option) {
+                case 1:
+                    echo "Netflix selected";
+                case 2:
+                    echo "Youtube selected";
+                case 3:
+                    echo "DisneyPlus selected";
+                default:
+                    echo "This is not a valid option. Try again.";
+            }
+        }
+        $this->setSmartTV(false);
     }
 
     function getUpSound() {
@@ -87,4 +118,5 @@ class TVRemote {
     function setSmartTV($smartTV) {
         $this->smartTV = $smartTV;
     }
+
 }
